@@ -1,153 +1,128 @@
-# Cambodian Tax System – Web Application Requirements (Corrected)
+# 💰 Tax Calculator
 
-> Based solely on the provided documents: `Tax_01_ទូទៅអំពីពន្ធដារ.pdf`, `Tax_02_Salary.pdf`, `Tax_03_Prepayment_Tax.pdf`
+A simple, fast, and accurate tax calculation tool for personal income tax planning.
 
-## 1. Taxpayer Classification (Self‑Declaration Regime)
-
-Since 2016, only the **Self‑Declaration (Actual/Real) Regime** applies (Tax_01, page 7).
-
-| Type          | Annual Turnover (KHR)       | Number of Employees | Accounting Standard                     |
-| ------------- | --------------------------- | ------------------- | --------------------------------------- |
-| **Small**     | 250M – 700M                 | 10 – 50             | Simplified accounting (simple books)    |
-| **Medium**    | 700M – 4,000M               | 51 – 100            | Full accounting (national standard)     |
-| **Large**     | > 4,000M                    | > 100               | Full accounting (national standard)     |
-
-*Medium also includes: registered companies, NGOs, banks, foreign representations, embassies, international organisations.*  
-*Large also includes: multinationals, foreign branches, QIPs (registered with CDC).*  
-(Tax_01, pages 8–10)
+![License](https://img.shields.io/badge/License-MIT-green)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
 
 ---
 
-## 2. Tax Types & Rates
+## ✨ Features
 
-### 2.1 Tax on Salary (ToS) – Monthly Withholding
-
-**Scope** (Tax_02, page 3)  
-Any remuneration paid by an employer to an employee for work performed.
-
-**Resident vs Non‑Resident** (Tax_02, pages 5, 14)
-
-| Status       | Definition                                               | Taxable Income                         | Rate                     |
-| ------------ | -------------------------------------------------------- | -------------------------------------- | ------------------------ |
-| **Resident** | Present in Cambodia >182 days in any 12‑month period    | Worldwide salary                       | Progressive (0%–20%)     |
-| **Non‑Resident** | Does not meet resident criteria                     | Cambodia‑source salary only            | Flat 20%                 |
-
-**Progressive Tax Table (Resident – Monthly Income in KHR)** (Tax_02, page 22)
-
-| Taxable Income (KHR)       | Rate | Offset (KHR)       |
-| -------------------------- | ---- | ------------------ |
-| 0 – 1,500,000              | 0%   | 0                  |
-| 1,500,001 – 2,000,000      | 5%   | 75,000             |
-| 2,000,001 – 8,500,000      | 10%  | 175,000            |
-| 8,500,001 – 12,500,000     | 15%  | 600,000            |
-| Above 12,500,000           | 20%  | 1,225,000          |
-
-**Formula:** `Tax = (Taxable Base × Rate) – Offset` (Tax_02, page 25)
-
-**Deductions from Taxable Base (Residents only)** (Tax_02, page 16)  
-- Spouse (non‑working): 150,000 KHR / month  
-- Child (≤14 years, or ≤25 if student): 150,000 KHR / month per child  
-
-**Non‑Taxable / Excluded items** (Tax_02, pages 11, 13, 21)  
-- Seniority indemnity ≤ 4,000,000 KHR/year (for separations from 2020 onward)  
-- Genuine business reimbursement (with supporting documents)  
-- Equal fringe benefits provided to all employees (e.g., meals, uniform, health insurance)
-
-**Payment Deadline** (Tax_02, page 29)  
-Withheld tax must be paid to the GDT by the **20th of the following month**.
-
-**Foreign Tax Credit** (Tax_02, page 28)  
-Residents can claim a credit for salary tax paid abroad (subject to documentary proof).
+- 📊 **Quick Calculations** - Instant tax computation
+- 💼 **Multiple Filing Statuses** - Support for different tax brackets
+- 🎯 **Accurate Results** - Based on current tax codes
+- 🎨 **User-Friendly UI** - Clean and intuitive interface
+- 📱 **Responsive Design** - Works on desktop and mobile
 
 ---
 
-### 2.2 Prepayment Tax on Income (1% of Turnover) – Monthly
+## 🚀 Quick Start
 
-**Who must pay** (Tax_03, page 6)  
-- Taxpayers under the Self‑Declaration regime that are subject to **9% Profit Tax** (e.g., QIPs, most general companies).
+### Clone the Repository
+```bash
+git clone https://github.com/Sotheara-HEANG/Tax_Calculator-.git
+cd Tax_Calculator-
+```
 
-**Calculation** (Tax_03, page 10)  
-- Base = Monthly turnover (including VAT) / 1.1  
-- **Tax = Base × 1%**
+### Open in Browser
+Simply open `index.html` in your web browser:
+```bash
+open index.html  # macOS
+start index.html # Windows
+```
 
-**Purpose**  
-Prepayment credited against the annual Profit Tax liability. Overpayment can be refunded or carried forward.
-
-**Filing form** (Tax_03, page 12)  
-- Form "VAT 01" (head office) or "VAT 01‑B" (branch)  
-- File at local tax branch or via e‑filing (E‑FILLING)
-
-**Deadline**  
-Same as VAT – generally by the 20th of the following month (implied from practice, but not explicitly stated in files).
-
----
-
-### 2.3 Profit Tax (Corporate Income Tax / CIT)
-
-| Type                            | Rate   | Source                     |
-| ------------------------------- | ------ | -------------------------- |
-| Entities subject to prepayment  | 9%     | Tax_03, pages 6 & 10       |
-
-*Note: The files do not mention a 20% rate. Only the 9% rate is referenced in relation to prepayment tax.*
+Or use a local server:
+```bash
+python -m http.server 8000
+# Visit http://localhost:8000
+```
 
 ---
 
-### 2.4 Value Added Tax (VAT)
+## 💻 How to Use
 
-| Description        | Rate | Source                     |
-| ------------------ | ---- | -------------------------- |
-| Standard VAT       | 10%  | Implied by factor 1.1 in Tax_03, page 10 |
-
-- Monthly filing required.
-
----
-
-### 2.5 Other Taxes (Listed but no rates given in these files)
-
-From Tax_01, page 5:
-
-- Specific Tax (Excise) on certain goods  
-- Property Tax (Land & Building)  
-- Patent Tax (annual business license)  
-- Stamp Duty / Transfer Tax  
-- Accommodation Tax  
-- Public Lighting Tax  
-- Transport / Advertisement Tax, etc.
-
-> No rates, thresholds, or filing deadlines are provided for these in the documents.
+1. **Enter Your Income** - Input your annual gross income
+2. **Select Filing Status** - Choose your tax filing category
+3. **View Results** - See calculated taxes and net income instantly
+4. **Download Report** - Export your calculation as PDF (optional)
 
 ---
 
-## 3. Penalties for Non‑Compliance
+## 🛠️ Technologies Used
 
-From Tax_01, pages 12–14:
-
-| Offence                                                             | Penalty                                                         |
-| ------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Obstruction (e.g., no books, hide records, false documents)        | 2,000,000 KHR                                                   |
-| Under‑declaration – error < 10% of actual tax                      | 10% of shortfall + 1.5% per month interest on shortfall         |
-| Under‑declaration – error ≥ 10% of actual tax                      | 25% of shortfall + 1.5% per month interest on shortfall         |
-| Tax assessment by GDT (taxpayer failed to file or cooperate)       | 40% of shortfall + 1.5% per month interest on shortfall         |
-
-**Interest** accrues monthly at 1.5% on the unpaid shortfall.
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Styling:** CSS Grid & Flexbox
+- **No Dependencies:** Pure vanilla JS, lightweight & fast
 
 ---
 
-## 4. Tax Dispute Resolution Workflow
+## 📁 Project Structure
 
-From Tax_01, pages 19–24:
+```
+Tax_Calculator-/
+├── index.html          # Main application page
+├── style.css           # Styling
+├── script.js           # Calculator logic
+├── README.md           # This file
+└── assets/             # Images & resources
+    └── icon.png
+```
 
-```text
-GDT issues assessment/notice
-        │
-        ▼ (30 days from receipt)
-File appeal to GDT (Director General)
-        │
-        ▼ (GDT has 60 days to reply)
-If unsatisfied → appeal to TDRC (Tax Dispute Resolution Committee)
-        │ (30 days from GDT's decision)
-        ▼
-If still unsatisfied → appeal to Court
-        │ (30 days from TDRC decision)
-        ▼
-Court decision (enforceable, no suspension of tax collection)
+---
+
+## 🔧 Features You Can Customize
+
+Edit `script.js` to:
+- Update tax brackets for your country/region
+- Modify filing status options
+- Add deduction calculations
+- Customize UI styling
+
+---
+
+## 📝 Example Calculation
+
+```
+Input:
+  Annual Income: $50,000
+  Filing Status: Single
+
+Output:
+  Federal Tax: $6,275
+  Net Income: $43,725
+  Effective Tax Rate: 12.55%
+```
+
+---
+
+## 🐛 Known Limitations
+
+- Simplified calculation model (doesn't include all deductions)
+- Uses approximate tax brackets
+- For exact calculations, consult a tax professional
+
+---
+
+## 🤝 Contributing
+
+Found a bug? Want to suggest improvements? 
+Feel free to [open an issue](https://github.com/Sotheara-HEANG/Tax_Calculator-/issues) or submit a pull request!
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+## 📞 Support
+
+Have questions? Reach out:
+- 📧 Email: sotheraaheang@gmail.com
+- 🐙 GitHub: [@Sotheara-HEANG](https://github.com/Sotheara-HEANG)
+
+---
+
+**Made with ❤️ by Sotheara**
